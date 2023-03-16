@@ -18,18 +18,6 @@ function createGalleryCardsMarkup(items) {
 };
 const cardsMarkup = createGalleryCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', cardsMarkup);  
-galleryContainer.addEventListener('click', handleGalleryClick);
-
-function handleGalleryClick(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== 'IMG') {
-        return
-    }
-    const modalImg = event.target.dataset.source;
-    console.log(modalImg);
-    const instance = basicLightbox.create(`<img class="gallery__image" src = "${modalImg}" alt = "" width="800" height="600">`)
-instance.show();
-};
 const lightbox = new SimpleLightbox('.gallery a', { caption: true, captionDelay: 250 });
 console.log(galleryItems);
 
